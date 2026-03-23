@@ -7,7 +7,7 @@
 
 ## What this is
 
-This repo is my submission for the OSS Capstone project. I picked Git as my software — partly because I actually use it, and partly because the story of why it was built (BitKeeper going proprietary mid-kernel-development) is genuinely interesting.
+This repo is my submission for the OSS Capstone project. I picked Git as my software  partly because I actually use it, and partly because the story of why it was built (BitKeeper going proprietary mid-kernel-development) is genuinely interesting.
 
 The repo has five shell scripts that cover the practical Linux side of the project. The written report is submitted separately as a PDF on the VITyarthi portal.
 
