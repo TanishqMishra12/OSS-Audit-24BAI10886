@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script 3: Disk and Permission Auditor
-# Author: Tanishq Shrivastava | Reg No: 24BCY10162
+# Author: Tanishq Mishra | Reg No: 24BAI10886
 # Loops through key system directories, reports permissions and size
 
 DIRS=("/etc" "/var/log" "/home" "/usr/bin" "/tmp" "/usr/share/doc/git")
