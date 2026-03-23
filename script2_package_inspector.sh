@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script 2: FOSS Package Inspector
-# Author: Tanishq Shrivastava | Reg No: 24BCY10162
+# Author: Tanishq Mishra | Reg No: 24BAI10886
 # Checks if the chosen OSS package is installed and shows info about it
 
 PACKAGE="git"
