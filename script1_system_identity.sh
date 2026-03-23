@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script 1: System Identity Report
-# Author: Tanishq Shrivastava | Reg No: 24BCY10162
+# Author: Tanishq Mishra | Reg No: 24BAI10886
 # Course: Open Source Software | Chosen Software: Git
 
 STUDENT_NAME="Tanishq Mishra"
