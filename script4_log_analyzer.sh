@@ -1,12 +1,11 @@
 #!/bin/bash
 # Script 4: Log File Analyzer
-
 # Author: Tanishq Mishra | Reg No: 24BAI10886
 # Usage: ./script4_log_analyzer.sh <logfile> [keyword]
 # Example: ./script4_log_analyzer.sh /var/log/syslog error
 
 LOGFILE=$1
-KEYWORD=${2:-"error"}
+KEYWORD=${2:-"error"}  # Defaults to "error" if no keyword is provided
 COUNT=0
 ATTEMPTS=0
 MAX_RETRIES=3
@@ -17,7 +16,7 @@ if [ -z "$LOGFILE" ]; then
     exit 1
 fi
 
-# retry loop if file not found or empty, up to MAX_RETRIES times
+# Retry up to MAX_RETRIES times if the file isn't available yet
 while [ ! -f "$LOGFILE" ] && [ $ATTEMPTS -lt $MAX_RETRIES ]; do
     ATTEMPTS=$((ATTEMPTS + 1))
     echo "Attempt $ATTEMPTS: File '$LOGFILE' not found. Retrying in 2 seconds..."
@@ -40,6 +39,7 @@ echo "File    : $LOGFILE"
 echo "Keyword : $KEYWORD"
 echo "----------------------------------"
 
+# Read file line by line and count keyword matches (case-insensitive)
 while IFS= read -r LINE; do
     if echo "$LINE" | grep -iq "$KEYWORD"; then
         COUNT=$((COUNT + 1))
