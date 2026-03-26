@@ -5,14 +5,14 @@
 
 PACKAGE="git"
 
-# detect package manager and check installation
+# Detect available package manager and check if the package is installed
 if command -v rpm &>/dev/null; then
     PKG_MGR="rpm"
     INSTALLED=$(rpm -q $PACKAGE 2>/dev/null)
     STATUS=$?
 elif command -v dpkg &>/dev/null; then
     PKG_MGR="dpkg"
-    INSTALLED=$(dpkg -l $PACKAGE 2>/dev/null | grep "^ii")
+    INSTALLED=$(dpkg -l $PACKAGE 2>/dev/null | grep "^ii") # "^ii" indicates a fully installed package in dpkg output
     STATUS=$?
 else
     echo "No supported package manager found (rpm/dpkg)."
@@ -26,6 +26,7 @@ echo "-------------------------------------------"
 if [ $STATUS -eq 0 ]; then
     echo "Status  : INSTALLED"
 
+    # Extract version, license, and summary based on the detected package manager
     if [ "$PKG_MGR" = "rpm" ]; then
         VERSION=$(rpm -qi $PACKAGE | grep "^Version" | awk '{print $3}')
         PKG_LICENSE=$(rpm -qi $PACKAGE | grep "^License" | awk '{print $3}')
@@ -47,6 +48,7 @@ fi
 echo ""
 echo "Philosophy note:"
 
+# Print a brief history/philosophy blurb depending on the package
 case $PACKAGE in
     git)
         echo "  Git was born out of necessity — Linus Torvalds wrote it in two weeks"
@@ -69,7 +71,7 @@ case $PACKAGE in
         echo "  Firefox was the browser that pushed back against Internet Explorer's"
         echo "  monopoly. Still one of the few major browsers not owned by a tech giant."
         ;;
-    *)
+    *)  # Fallback for any package not explicitly listed above
         echo "  Open source software gives users the freedom to understand and improve"
         echo "  the tools they depend on."
         ;;
