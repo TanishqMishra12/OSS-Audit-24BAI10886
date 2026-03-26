@@ -1,7 +1,8 @@
 #!/bin/bash
 # Script 5: Open Source Manifesto Generator
 # Author: Tanishq Mishra | Reg No: 24BAI10886
-# Asks three questions and writes a personal OSS philosophy statement to a filex    
+# Asks three questions and writes a personal OSS philosophy statement to a file
+
 # alias demonstration (concept note — aliases are normally set in ~/.bashrc)
 # alias today='date +%d-%B-%Y'
 
@@ -12,19 +13,20 @@ echo ""
 echo "Answer three questions below."
 echo ""
 
+# Collect user input for personalizing the manifesto
 read -p "1. Name one open-source tool you use every day: " TOOL
 read -p "2. In one word, what does 'freedom' mean to you in software? " FREEDOM
 read -p "3. Name one thing you would build and share freely if you could: " BUILD
 
 DATE=$(date '+%d %B %Y')
 UNAME=$(whoami)
-OUTPUT="manifesto_${UNAME}.txt"
+OUTPUT="manifesto_${UNAME}.txt"  # Output filename is unique per user
 
 echo ""
 echo "Generating your manifesto..."
 echo ""
 
-# write manifesto to file
+# Write the full manifesto to the output file using a heredoc-style block
 {
 echo "Open Source Manifesto"
 echo "Generated on: $DATE"
